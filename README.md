@@ -1,3 +1,3 @@
 # startup  Hello
 new line
-A different message
+Merge error and A different message
