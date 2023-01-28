@@ -11,11 +11,13 @@ Thus I will be creadting a website with my own book recommendations that come wi
 
 Key Features:
 
-- Visitors can leave their own recommendations(All anoymous)
+- Visitors can leave their own recommendations
 
 - Visitors can rate the recommendation on a scale 1-5 and average will be taken
 
 - Visitors should only be able to submit 1 rating per a work (can edit rating later)
+
+- Login to track ratings and unique recommendations
 
 - Average ratings will be displayed in real time
 
