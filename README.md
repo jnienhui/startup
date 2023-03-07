@@ -31,3 +31,8 @@ Notes (Simon CSS)
 - The bootstrap allows for a significantly easier time in styling and coloring components on the website
 - css also allows for the moving and positioning of objects better
 - should code html and css at the same time to make it easier to see the changes made and how to position
+
+Notes (Simon javascript)
+
+- can use similar code to simon's play javascript file to write functions for buttons.
+- have something similar to scores javascript to keep track of people's book reviews.
