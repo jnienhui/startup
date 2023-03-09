@@ -36,3 +36,7 @@ Notes (Simon javascript)
 
 - can use similar code to simon's play javascript file to write functions for buttons.
 - have something similar to scores javascript to keep track of people's book reviews.
+
+Notes (Startup HTML/CSS Deliverable)
+- the form element is very useful in creating places for the user to input information
+- for my Recommendations use IDs to separate the star rating's to make data easier to collect from them.
