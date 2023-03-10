@@ -17,10 +17,6 @@ function createUser() {
       }
     }
   
-    if(inputUsername.length === 0){
-      usernamePass = false;
-    }
-  
     if(!usernamePass){
       document.querySelector('#createUserError').textContent = 'Username already taken or invalid!';
     } 

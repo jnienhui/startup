@@ -29,9 +29,11 @@
 
   <div class="login-form">
 		<h2>Login</h2>
-		<form>
-			<input type="text" name="username" placeholder="Username" required><br>
-			<input type="password" name="password" placeholder="Password" required><br>
+		<form id="loginForm">
+			<input type="text" id="loginUsername" name="username" placeholder="Username" required><br>
+      <div id="loginUserError"></div>
+			<input type="password" id="loginPassword" name="password" placeholder="Password" required><br>
+      <div id="loginPasswordError"></div>
 			<button type="submit">Login</button>
             <a href="createLogin.html">Create Account</a>
 		</form>
@@ -47,6 +49,6 @@
       >
     </div>
   </footer>
-
+  <script src="login.js"></script>
 </body>
 </html>
