@@ -7,7 +7,6 @@
         <title>Login</title>
     
         <link rel="icon" href="Book.ico" />
-
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -29,13 +28,18 @@
 
   <div class="login-form">
 		<h2>Create Account</h2>
-		<form>
-			<input type="text" name="username" placeholder="Username" required><br>
-			<input type="password" name="password" placeholder="Password" required><br>
-      <input type="password" name="password" placeholder="Confirm Password" required><br>
-			<button type="submit">Create</button>
+		<form id="createLoginForm">
+			<input id="newUsername" type="text" name="username" placeholder="Username" required><br>
+      <div id="createUserError"></div>
+			<input id="newPassword" type="password" name="password" placeholder="Password" required><br>
+      <input id="confirmPassword" type="password" name="password" placeholder="Confirm Password" required><br>
+      <div id="createPasswordError"></div>
+			<button id= "createUser" type="submit">Create</button>
 		</form>
 	</div>
+
+  <button id="clearStorageButton">Clear Storage</button>
+  <div id="clearStorage"></div>
 
   <footer class="bg-dark text-dark text-muted">
     <div class="container-fluid">
@@ -47,6 +51,6 @@
       >
     </div>
   </footer>
-
+  <script src="createLogin.js"></script>
 </body>
 </html>
