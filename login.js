@@ -23,6 +23,7 @@ function tryLogin() {
         if(myPasswords[index] === inputPassword){
             passwordPass = true;
             localStorage.setItem("name",inputUsername)
+            localStorage.setItem('isLoggedin', true);
             window.location.href = "myBooks.html";
         }
         else{
