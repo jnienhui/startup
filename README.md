@@ -40,3 +40,8 @@ Notes (Simon javascript)
 Notes (Startup HTML/CSS Deliverable)
 - the form element is very useful in creating places for the user to input information
 - for my Recommendations use IDs to separate the star rating's to make data easier to collect from them.
+
+Notes (Startup javascript Deliverable)
+- The use of JSON stringify and parse is quite large and can be used for booleans, arrays and other things
+- the rating system's javascript is complete but not working completely as I intended yet as I will use databases later to store objects so that a rating is unique to each user
+- in other words the rating won't add a new one to the array everytime a star is clicked instead it will update the rating in the user object and than update the overall.
