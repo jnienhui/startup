@@ -193,3 +193,15 @@ footer a {
     text-decoration: none;
     padding-left: 10px;
 }
+  
+#signout-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+  
+  #signout-btn:hover {
+    background-color: #d32f2f;
+  }
+  

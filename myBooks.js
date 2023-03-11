@@ -24,3 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
+const signoutBtn = document.querySelector('#signout-btn');
+
+// check if the user is signed in
+if (localStorage.getItem('isLoggedin')) {
+  // show the signout button
+  signoutBtn.style.display = 'block';
+} else {
+  // hide the signout button
+  signoutBtn.style.display = 'none';
+}
+
+signoutBtn.addEventListener('click', function() {
+    localStorage.removeItem('isLoggedin');
+    localStorage.removeItem('name');
+    signoutBtn.style.display = 'none';
+    location.reload();
+  });

@@ -13,6 +13,10 @@ form.addEventListener('submit', function(event) {
   
   // Get the values of the form inputs
   const user = localStorage.getItem('name');
+  if(user === null){
+    document.querySelector('#addRecSuccess').textContent = "Must be logged in to add recommendations!";
+    return;
+  }
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
   const summary = document.querySelector('#summary').value;
@@ -35,3 +39,21 @@ form.addEventListener('submit', function(event) {
   document.querySelector('#addRecSuccess').textContent = "Recommendation added sucessfully!";
   form.reset();
 });
+
+const signoutBtn = document.querySelector('#signout-btn');
+
+// check if the user is signed in
+if (localStorage.getItem('isLoggedin')) {
+  // show the signout button
+  signoutBtn.style.display = 'block';
+} else {
+  // hide the signout button
+  signoutBtn.style.display = 'none';
+}
+
+signoutBtn.addEventListener('click', function() {
+    localStorage.removeItem('isLoggedin');
+    localStorage.removeItem('name');
+    signoutBtn.style.display = 'none';
+    location.reload();
+  });
