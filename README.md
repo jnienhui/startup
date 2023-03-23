@@ -37,6 +37,13 @@ Notes (Simon javascript)
 - can use similar code to simon's play javascript file to write functions for buttons.
 - have something similar to scores javascript to keep track of people's book reviews.
 
+Notes (Simon Service)
+- I've never used or heard of node before this class so I found the application super interesting.
+- I also found it cool how easy it was to install node and add it to me computer so I will be doing that in the future with my other computers int he future.
+- Commands needed:
+    - npm init -y
+    - npm install express
+
 Notes (Startup HTML/CSS Deliverable)
 - the form element is very useful in creating places for the user to input information
 - for my Recommendations use IDs to separate the star rating's to make data easier to collect from them.
@@ -45,3 +52,4 @@ Notes (Startup javascript Deliverable)
 - The use of JSON stringify and parse is quite large and can be used for booleans, arrays and other things
 - the rating system's javascript is complete but not working completely as I intended yet as I will use databases later to store objects so that a rating is unique to each user
 - in other words the rating won't add a new one to the array everytime a star is clicked instead it will update the rating in the user object and than update the overall.
+

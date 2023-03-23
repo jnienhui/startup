@@ -12,6 +12,9 @@ function tryLogin() {
     let index = 0;
     let passwordPass = false;
 
+    if(!localStorage.getItem('isLoggedin')){
+
+    }
     for(let i = 0; i < myUsernames.length; i++){
         if(myUsernames[i] === inputUsername){
           usernamePass = true;
