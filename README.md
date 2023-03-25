@@ -44,6 +44,13 @@ Notes (Simon Service)
     - npm init -y
     - npm install express
 
+
+Notes (Simon Database)
+- Was a bit harder to get working than I initially thought
+- remember to use pm2 commands to restart services so that they can be reset
+- Will allow the service to recognize database and get it to start working
+    - pm2 delete (name of service)
+    - pm2 start index.js -n (name) -- 3000
 Notes (Startup HTML/CSS Deliverable)
 - the form element is very useful in creating places for the user to input information
 - for my Recommendations use IDs to separate the star rating's to make data easier to collect from them.
