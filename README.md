@@ -51,6 +51,13 @@ Notes (Simon Database)
 - Will allow the service to recognize database and get it to start working
     - pm2 delete (name of service)
     - pm2 start index.js -n (name) -- 3000
+
+Notes  (Simon Login)
+- Command to run
+    - npm install express cookie-parser mongodb uuid bcrypt
+- Found it super cool how you could encrypt the passwords in the database in a way that the computer can interpret and someone jsut looking at the database can't figure out
+- ALso found it cool how the score and user link up so the scoreboard updates with user's new score will implement that into my startup for my rating system.
+
 Notes (Startup HTML/CSS Deliverable)
 - the form element is very useful in creating places for the user to input information
 - for my Recommendations use IDs to separate the star rating's to make data easier to collect from them.
