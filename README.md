@@ -58,6 +58,16 @@ Notes  (Simon Login)
 - Found it super cool how you could encrypt the passwords in the database in a way that the computer can interpret and someone jsut looking at the database can't figure out
 - ALso found it cool how the score and user link up so the scoreboard updates with user's new score will implement that into my startup for my rating system.
 
+Notes (Simon WebSocket)
+- May need to update node because some packages me require a certain version
+    - nvm install (version)
+    - nvm use (version)
+    - will need to reinstall all packages after updating or changing version
+    - npm install express cookie-parser mongodb uuid bcrypt ws
+        - may need to install one at a time
+- In order to use web socket run
+    - npm install ws
+
 Notes (Startup HTML/CSS Deliverable)
 - the form element is very useful in creating places for the user to input information
 - for my Recommendations use IDs to separate the star rating's to make data easier to collect from them.
