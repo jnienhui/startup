@@ -1,0 +1,27 @@
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "Hello my name is Jacob Nienhuis a current sophomore at BYU majoring in computer science with a software engineering emphasis.\r One of the few hobbies that I enjoy is reading books. Specifically fiction books. However, I've noticed as time passes that this hobby is not as popular anymore.\r Some may say this is due to the increased usage and popularity of computers and other devices, but I instead believe it is due to the lack of recommendations.\r Thus I will be creadting a website with my own book recommendations that come with my own reviews of them along with where to get them which I hope you will check out.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnienhui/startup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnienhui/startup/issues"
+  },
+  "homepage": "https://github.com/jnienhui/startup#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "mongodb": "^5.2.0",
+    "uuid": "^9.0.0"
+  }
+}
