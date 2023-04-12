@@ -77,3 +77,7 @@ Notes (Startup javascript Deliverable)
 - the rating system's javascript is complete but not working completely as I intended yet as I will use databases later to store objects so that a rating is unique to each user
 - in other words the rating won't add a new one to the array everytime a star is clicked instead it will update the rating in the user object and than update the overall.
 
+Notes (Startup Service Deliverable)
+- The use of endpoints allowed for a much more readable javascript file and i found that after learning how to do one of them the rest of the endpoints became much easier to understand
+- The use of MongoDB also made the code easier as well as allowed me to check if my data was actually being stored.
+- The database also allows for everyone to see each others recommendations as well as change their ratings.
