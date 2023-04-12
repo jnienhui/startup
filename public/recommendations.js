@@ -3,38 +3,56 @@ document.addEventListener('DOMContentLoaded', function() {
     myElement.textContent = localStorage.getItem('name');
   });
 
-// Get the recommendation table body
-const recommendationTable = document.getElementById('recommendations');
+async function loadRecommendations() {
+  let recommendations = [];
+  try {
+    // Get the latest recommendations from the service
+    const response = await fetch('/api/recommendations');
+    recommendations = await response.json();
 
-// Get the bookData array from localStorage, or create an empty array if it doesn't exist yet
-const bookData = JSON.parse(localStorage.getItem('bookDataArray')) || [];
+    // Save the recommendations in case we go offline in the future
+    localStorage.setItem('recommendations', JSON.stringify(recommendations));
+  } catch {
+    // If there was an error then just use the last saved recommendations
+    const recommendationsText = localStorage.getItem('recommendations');
+    if (recommendationsText) {
+      recommendations = JSON.parse(recommendationsText);
+    }
+  }
 
-// Loop through the bookData array and append a new row to the table for each object
-bookData.forEach(function(book) {
-  // Create a new row element
-  const row = document.createElement('tr');
+  displayRecommendations(recommendations);
+}
 
-  // Add the book data to the row as table cells
-  const userCell = document.createElement('td');
-  userCell.textContent = book.user;
-  row.appendChild(userCell);
+function displayRecommendations(recommendations) {
+  const tableBodyEl = document.querySelector('#recommendations');
 
-  const titleCell = document.createElement('td');
-  titleCell.textContent = book.title;
-  row.appendChild(titleCell);
+  if (recommendations.length) {
+    // Update the DOM with the scores
+    for (const [i, recommendation] of recommendations.entries()) {
+      const userTdEl = document.createElement('td');
+      const titleTdEl = document.createElement('td');
+      const authorTdEl = document.createElement('td');
+      const summaryTdEl = document.createElement('td');
 
-  const authorCell = document.createElement('td');
-  authorCell.textContent = book.author;
-  row.appendChild(authorCell);
+      userTdEl.textContent = recommendation.user;
+      titleTdEl.textContent = recommendation.title;
+      authorTdEl.textContent = recommendation.author;
+      summaryTdEl.textContent = recommendation.summary;
 
-  const summaryCell = document.createElement('td');
-  summaryCell.textContent = book.summary;
-  row.appendChild(summaryCell);
+      const rowEl = document.createElement('tr');
+      rowEl.appendChild(userTdEl);
+      rowEl.appendChild(titleTdEl);
+      rowEl.appendChild(authorTdEl);
+      rowEl.appendChild(summaryTdEl);
 
-  // Append the row to the table
-  recommendationTable.appendChild(row);
-});
+      tableBodyEl.appendChild(rowEl);
+    }
+  } else {
+    tableBodyEl.innerHTML = '<tr><td colSpan=4>Be the first to recommend!</td></tr>';
+  }
+}
 
+loadRecommendations();
 const signoutBtn = document.querySelector('#signout-btn');
 
 // check if the user is signed in
@@ -51,4 +69,7 @@ signoutBtn.addEventListener('click', function() {
     localStorage.removeItem('name');
     signoutBtn.style.display = 'none';
     location.reload();
+    fetch(`/api/auth/logout`, {
+      method: 'delete',
+    }).then(() => (window.location.href = '/'));
   });

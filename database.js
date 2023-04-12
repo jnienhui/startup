@@ -18,6 +18,7 @@ const recommendationCollection = client.db('startup').collection('recommendation
 const ratingCollection = client.db('startup').collection('rating');
 
 function getUser(email) {
+  console.log("database");
   return userCollection.findOne({ email: email });
 }
 
@@ -43,10 +44,33 @@ function addRecommendation(recommendation) {
   recommendationCollection.insertOne(recommendation);
 }
 
-function addRating(rating) {
-  ratingCollection.insertOne(rating);
+async function addRating(rating) {
+  const rate = await ratingCollection.findOne({ user: rating.user });
+  if (rate) {
+    await ratingCollection.updateOne({ user: rating.user }, { $set: { rate: rating.rate } });
+  } else {
+    await ratingCollection.insertOne(rating);
+  }
 }
 
+
+async function getRecommendations(){
+  const recommendations = await recommendationCollection.find().toArray();
+  return recommendations;
+}
+
+async function getRatings(){
+  const ratings = await ratingCollection.find().toArray();
+  const nums = ratings.map((rating) => rating.rate);
+  const sum = nums.reduce((acc, val) => acc + val, 0);
+  const avg = sum / nums.length;
+
+  const total = {
+    avg: avg,
+  };
+
+  return total;
+}
 
 module.exports = {
   getUser,
@@ -54,4 +78,6 @@ module.exports = {
   createUser,
   addRecommendation,
   addRating,
+  getRecommendations,
+  getRatings,
 };

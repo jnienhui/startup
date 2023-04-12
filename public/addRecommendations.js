@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     myElement.textContent = localStorage.getItem('name');
   });
 
-let storedFormData = JSON.parse(localStorage.getItem('bookDataArray')) || [];
 
 // Get the form element and add an event listener to the submit button
 const form = document.querySelector('#addRec');
@@ -12,8 +11,8 @@ form.addEventListener('submit', function(event) {
   event.preventDefault();
   
   // Get the values of the form inputs
-  const user = localStorage.getItem('name');
-  if(user === null){
+  const name = localStorage.getItem('name');
+  if(name === null){
     document.querySelector('#addRecSuccess').textContent = "Must be logged in to add recommendations!";
     return;
   }
@@ -22,23 +21,33 @@ form.addEventListener('submit', function(event) {
   const summary = document.querySelector('#summary').value;
   
   // Create a JavaScript object to hold the form data
-  const formData = {
-    user: user,
+  const recommendation = {
+    user: name,
     title: title,
     author: author,
     summary: summary
   };
   
-  storedFormData.push(formData);
-
-  // Convert the JavaScript object to a JSON string
-  const jsonData = JSON.stringify(storedFormData);
+  addRecommendation(recommendation);
   
-  // Store the JSON data in localStorage
-  localStorage.setItem('bookDataArray', jsonData);
   document.querySelector('#addRecSuccess').textContent = "Recommendation added sucessfully!";
   form.reset();
 });
+
+async function addRecommendation(recommendation){
+  try {
+    const response = await fetch('/api/recommend', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(recommendation),
+    });
+
+    const recommendations = await response.json();
+    localStorage.setItem('recommendations', JSON.stringify(recommendations));
+  } catch(error) {
+    console.log(error);
+  }
+}
 
 const signoutBtn = document.querySelector('#signout-btn');
 

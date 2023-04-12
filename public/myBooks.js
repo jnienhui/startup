@@ -3,27 +3,47 @@ document.addEventListener('DOMContentLoaded', function() {
     myElement.textContent = localStorage.getItem('name');
   });
   
-  function rating(number) {
+  async function rating(number) {
     const isLoggedin = JSON.parse(localStorage.getItem('isLoggedin'));
-    let rating = JSON.parse(localStorage.getItem('rating1'));
-  
-    if (!rating) {
-      rating = [];
-    }
 
     if (isLoggedin) {
-      rating.push(number);
-      const sum = rating.reduce((acc, cur) => acc + cur, 0);
-      const avg = sum / rating.length;
-      const roundedAvg = avg.toFixed(1);
-  
-      localStorage.setItem('rating1', JSON.stringify(rating));
-      document.querySelector('#overallRating').textContent = roundedAvg;
+      const rating = {
+        user: localStorage.getItem('name'),
+        rate: number
+      };
+
+      try {
+        const response = await fetch('/api/rate', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(rating),
+        });
+    
+        const avgRating = await response.json();
+        document.querySelector('#overallRating').textContent = avgRating.avg;
+      } catch(error) {
+        console.log(error);
+      }
     } else {
       document.querySelector('#ratingError').textContent = 'Must be logged in to rate!';
     }
   }
+
+  async function loadRating(){
+    try {
+      const response = await fetch('/api/ratings');
+      recommendations = await response.json();
   
+      const avgRating = await response.json();
+      localStorage.setItem('avgRating', avgRating.avg);
+    } catch(error) {
+      console.log(error);
+    }
+    document.querySelector('#overallRating').textContent = avgRating.avg;
+  }
+
+loadRating();
+
 const signoutBtn = document.querySelector('#signout-btn');
 
 // check if the user is signed in
