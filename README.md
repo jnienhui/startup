@@ -81,3 +81,4 @@ Notes (Startup Service Deliverable)
 - The use of endpoints allowed for a much more readable javascript file and i found that after learning how to do one of them the rest of the endpoints became much easier to understand
 - The use of MongoDB also made the code easier as well as allowed me to check if my data was actually being stored.
 - The database also allows for everyone to see each others recommendations as well as change their ratings.
+- The Websocket caused me some issues when implementing it but i find it cool that others can see what is happening in real time through the messages broadcasted
