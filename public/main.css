@@ -208,4 +208,15 @@ footer a {
 #quote{
     text-align: center;
 }
-  
+
+#recent-recommendations{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#Recent-Rec-Title{
+    font-weight: bold;
+    float:left;
+    margin: 20px;
+    font-size: 16px;
+}
